@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "fastapi_flet_camera_feed"
+version = "0.1.0"
+description = "Uses websocket to create a camera feed. unencrypted"
+authors = ["rahul-george <rahultgeorge91@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.109.2"
+uvicorn = "^0.27.1"
+websockets = "^12.0"
+pypylon = "^1.9.0"
+numpy = "^1.24.3"
+matplotlib = "^3.7.1"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.1.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
