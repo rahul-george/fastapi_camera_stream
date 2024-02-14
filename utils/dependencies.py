@@ -15,7 +15,7 @@ from utils.camera_states import State
 
 
 async def resolve_state(request: Request, state: State):
-    current_state = request.app.handler_state
+    current_state = request.app.camera_state
     if current_state == State.OFFLINE and state == State.CONNECTED:
         print("Ready for use")
         return State.CONNECTED

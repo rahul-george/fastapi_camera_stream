@@ -9,9 +9,9 @@ import numpy as np
 import pypylon.pylon as pylon
 import matplotlib.pyplot as plt     # Plotting library
 from PIL import Image
-from flet import PubSub
-from flet.pubsub import PubSubHub
-from pubsub import pub
+# from flet import PubSub
+# from flet.pubsub import PubSubHub
+# from pubsub import pub
 from PIL import Image as pilImage
 
 
@@ -110,7 +110,7 @@ class ImageHandler(pylon.ImageEventHandler):
     def __init__(self):
         super().__init__()
         self.control = None
-        self.ps = PubSub(PubSubHub(), "1")
+        # self.ps = PubSub(PubSubHub(), "1")
         self.image = None
 
         # Additionally, get the Image control
@@ -119,7 +119,7 @@ class ImageHandler(pylon.ImageEventHandler):
         self.control = control
 
     def register_subs(self, handler):
-        pub.subscribe(handler, "image_received")
+        # pub.subscribe(handler, "image_received")
         pass
 
     def OnImageGrabbed(self, camera: "InstantCamera", grabResult: "GrabResult") -> "void":
@@ -148,7 +148,7 @@ class ImageHandler(pylon.ImageEventHandler):
                 # self.control.update()
 
                 # self.ps.send_all(img_str)
-                pub.sendMessage("image_received", **{"msg":img_str})
+                # pub.sendMessage("image_received", **{"msg":img_str})
             else:
                 raise RuntimeError("Grab Failed")
 
